@@ -12,7 +12,7 @@ const HERO_SLIDES = [
         title: "Smart Living for Every Home.",
         subtitle: "Affordable & Easy",
         description: "Upgrade your existing switchboards to Smart Switches without rewiring. Experience voice control and app convenience starting at pocket-friendly prices.",
-        color: "from-blue-400 to-cyan-300"
+        color: "from-brand-400 to-accent-300"
     },
     {
         id: 2,
@@ -29,6 +29,14 @@ const HERO_SLIDES = [
         subtitle: "Robust Engineering",
         description: "Advanced PLC, SCADA, and Control Panel solutions for the manufacturing sector. Reliability meets innovation.",
         color: "from-amber-400 to-orange-300"
+    },
+    {
+        id: 4,
+        image: "https://images.unsplash.com/photo-1621905252507-b35492ccba0b?q=80&w=2874&auto=format&fit=crop", // Industrial Factory / Panels
+        title: "Precision Manufacturing.",
+        subtitle: "Custom Control Panels",
+        description: "We design and build high-quality PCC, MCC, and VFD panels. Tailored solutions ensuring safety, reliability, and operational efficiency.",
+        color: "from-indigo-500 to-purple-400"
     }
 ];
 
@@ -83,6 +91,34 @@ const Home: React.FC = () => {
         }
     };
 
+    // Helper to get widget content based on slide
+    const getWidgetContent = (index: number) => {
+        if (index === 2) { // Industrial PLC
+            return {
+                title: 'Industrial Automation',
+                status: 'Logic Active',
+                scene: 'Production: Shift A',
+                image: PRODUCTS.find(p => p.id === 'p2')?.imageUrl || ''
+            };
+        } else if (index === 3) { // Industrial Panels
+            return {
+                title: 'Power Distribution',
+                status: 'Load Optimal',
+                scene: 'Main Control Room',
+                image: PRODUCTS.find(p => p.id === 'p5')?.imageUrl || ''
+            };
+        } else { // Home Automation
+            return {
+                title: 'Smart Hub',
+                status: 'System Active',
+                scene: 'Evening Relax Mode',
+                image: PRODUCTS[3].imageUrl // Touch panel
+            };
+        }
+    };
+
+    const widgetContent = getWidgetContent(currentHeroSlide);
+
     return (
         <div className="font-sans overflow-x-hidden selection:bg-blue-500 selection:text-white">
             {/* --- HERO SLIDER SECTION --- */}
@@ -109,7 +145,7 @@ const Home: React.FC = () => {
                         <div className="text-left space-y-8">
                             <RevealOnScroll effect="fade-right" delay={100} key={`badge-${currentHeroSlide}`}>
                                 <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-md">
-                                    <span className={`flex h-2 w-2 rounded-full shadow-[0_0_10px_currentColor] ${currentHeroSlide === 0 ? 'bg-blue-400 text-blue-400' : currentHeroSlide === 1 ? 'bg-green-400 text-green-400' : 'bg-amber-400 text-amber-400'}`}></span>
+                                    <span className={`flex h-2 w-2 rounded-full shadow-[0_0_10px_currentColor] ${currentHeroSlide === 0 ? 'bg-blue-400 text-blue-400' : currentHeroSlide === 1 ? 'bg-green-400 text-green-400' : currentHeroSlide === 2 ? 'bg-amber-400 text-amber-400' : 'bg-purple-400 text-purple-400'}`}></span>
                                     <span className="text-white/90 text-sm font-medium tracking-wide uppercase">{HERO_SLIDES[currentHeroSlide].subtitle}</span>
                                 </div>
                             </RevealOnScroll>
@@ -172,15 +208,15 @@ const Home: React.FC = () => {
                                     <div className="flex justify-between items-center mb-6">
                                         <div className="flex items-center gap-3">
                                             <div className={`p-2 rounded-lg bg-gradient-to-br ${HERO_SLIDES[currentHeroSlide].color} text-white shadow-lg`}>
-                                                {currentHeroSlide === 2 ? <Factory size={20} /> : <Wifi size={20} />}
+                                                {currentHeroSlide >= 2 ? <Factory size={20} /> : <Wifi size={20} />}
                                             </div>
                                             <div>
                                                 <h3 className="text-white font-display font-bold text-lg tracking-wide leading-none">
-                                                    {currentHeroSlide === 2 ? 'Industrial Panel' : 'Smart Hub'}
+                                                    {widgetContent.title}
                                                 </h3>
                                                 <p className="text-xs text-green-400 font-medium uppercase tracking-wider flex items-center gap-1 mt-1">
                                                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-                                                    System Active
+                                                    {widgetContent.status}
                                                 </p>
                                             </div>
                                         </div>
@@ -193,7 +229,7 @@ const Home: React.FC = () => {
                                     {/* Main Visual Display */}
                                     <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 mb-6 relative group shadow-inner border border-white/5">
                                         <img 
-                                            src={currentHeroSlide === 2 ? PRODUCTS.find(p => p.id === 'p2')?.imageUrl : PRODUCTS[3].imageUrl} 
+                                            src={widgetContent.image} 
                                             alt="Featured" 
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                                         />
@@ -207,10 +243,10 @@ const Home: React.FC = () => {
                                                 <div>
                                                     <p className="text-slate-300 text-[10px] font-bold uppercase tracking-wide">Current Scene</p>
                                                     <p className="text-white font-bold text-sm">
-                                                        {currentHeroSlide === 2 ? 'Production: Shift A' : 'Evening Relax Mode'}
+                                                        {widgetContent.scene}
                                                     </p>
                                                 </div>
-                                                <div className={`w-10 h-6 rounded-full p-1 transition-colors duration-300 ${currentHeroSlide === 1 ? 'bg-green-500' : 'bg-blue-600'}`}>
+                                                <div className={`w-10 h-6 rounded-full p-1 transition-colors duration-300 ${currentHeroSlide === 1 ? 'bg-green-500' : 'bg-brand-600'}`}>
                                                     <div className="w-4 h-4 bg-white rounded-full shadow-sm transform translate-x-4"></div>
                                                 </div>
                                             </div>
@@ -220,7 +256,7 @@ const Home: React.FC = () => {
                                     {/* Footer Stats Grid */}
                                     <div className="grid grid-cols-3 gap-2 border-t border-white/10 pt-4">
                                         <div className="text-center group cursor-pointer">
-                                            <div className="flex justify-center mb-1 text-slate-500 group-hover:text-blue-400 transition-colors">
+                                            <div className="flex justify-center mb-1 text-slate-500 group-hover:text-brand-400 transition-colors">
                                                 <Zap size={18} />
                                             </div>
                                             <p className="text-[10px] text-slate-400 uppercase">Energy</p>
@@ -330,12 +366,12 @@ const Home: React.FC = () => {
                                         relative overflow-hidden transition-all duration-300 flex items-center group flex-shrink-0 snap-center
                                         min-w-[280px] p-4 rounded-2xl lg:w-full lg:p-6 lg:text-left
                                         ${activeTab === tab.id 
-                                            ? 'bg-white shadow-card ring-2 ring-blue-600 z-10 scale-[1.02]' 
+                                            ? 'bg-white shadow-card ring-2 ring-brand-600 z-10 scale-[1.02]' 
                                             : 'bg-white/50 border border-slate-200 hover:bg-white hover:shadow-md'
                                         }
                                     `}
                                 >
-                                    <div className={`p-3 rounded-xl mr-4 flex-shrink-0 transition-colors ${activeTab === tab.id ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-blue-600'}`}>
+                                    <div className={`p-3 rounded-xl mr-4 flex-shrink-0 transition-colors ${activeTab === tab.id ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-500 group-hover:bg-brand-50 group-hover:text-brand-600'}`}>
                                         <tab.icon size={24} />
                                     </div>
                                     <div className="text-left">
@@ -442,7 +478,7 @@ const Home: React.FC = () => {
                              <button 
                                 key={idx}
                                 onClick={() => setCurrentProductIndex(idx)}
-                                className={`h-1.5 rounded-full transition-all ${idx === currentProductIndex ? 'w-10 bg-blue-600' : 'w-2 bg-slate-200 hover:bg-slate-300'}`}
+                                className={`h-1.5 rounded-full transition-all ${idx === currentProductIndex ? 'w-10 bg-brand-600' : 'w-2 bg-slate-200 hover:bg-slate-300'}`}
                             />
                         ))}
                     </div>
@@ -450,14 +486,14 @@ const Home: React.FC = () => {
             </section>
 
              {/* --- STATS SECTION --- */}
-             <section className="bg-blue-600 py-20 relative overflow-hidden">
+             <section className="bg-brand-600 py-20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/20">
                         <RevealOnScroll effect="fade-up" delay={0}>
                             <div className="p-4">
                                 <h4 className="font-display text-5xl md:text-6xl font-bold text-white mb-2 tracking-tight">25+</h4>
-                                <p className="text-blue-100 font-medium uppercase tracking-wide text-sm">Years Experience</p>
+                                <p className="text-brand-100 font-medium uppercase tracking-wide text-sm">Years Experience</p>
                             </div>
                         </RevealOnScroll>
                         <RevealOnScroll effect="fade-up" delay={100}>

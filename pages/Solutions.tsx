@@ -11,7 +11,7 @@ const SolutionCard: React.FC<{ service: Service }> = ({ service }) => {
     
     return (
         <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all border border-slate-100 flex flex-col items-start h-full group">
-            <div className={`p-3 rounded-xl mb-6 transition-colors duration-300 ${isHome ? 'bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white' : 'bg-slate-100 text-slate-700 group-hover:bg-slate-800 group-hover:text-white'}`}>
+            <div className={`p-3 rounded-xl mb-6 transition-colors duration-300 ${isHome ? 'bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white' : 'bg-slate-100 text-slate-700 group-hover:bg-slate-800 group-hover:text-white'}`}>
                 <Icon size={32} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
@@ -82,7 +82,7 @@ const Solutions: React.FC = () => {
                 <section className="mb-24">
                     <RevealOnScroll effect="fade-right">
                         <div className="flex items-center gap-5 mb-10 border-b border-slate-200 pb-6">
-                            <div className="p-4 bg-blue-600 rounded-2xl text-white shadow-lg shadow-blue-200">
+                            <div className="p-4 bg-brand-600 rounded-2xl text-white shadow-lg shadow-brand-200">
                                 <Star size={40} />
                             </div>
                             <div>

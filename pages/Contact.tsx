@@ -43,8 +43,8 @@ const Contact: React.FC = () => {
                                 <h2 className="text-2xl font-bold mb-8">Contact Information</h2>
                                 <div className="space-y-6">
                                     <div className="flex items-start space-x-4">
-                                        <div className="bg-blue-600/20 p-3 rounded-lg">
-                                            <MapPin className="text-blue-400" size={24} />
+                                        <div className="bg-brand-600/20 p-3 rounded-lg">
+                                            <MapPin className="text-brand-400" size={24} />
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-lg">Our Office</h3>
@@ -56,8 +56,8 @@ const Contact: React.FC = () => {
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-4">
-                                        <div className="bg-blue-600/20 p-3 rounded-lg">
-                                            <Phone className="text-blue-400" size={24} />
+                                        <div className="bg-brand-600/20 p-3 rounded-lg">
+                                            <Phone className="text-brand-400" size={24} />
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-lg">Phone</h3>
@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
                                             required
                                             value={formData.name}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors outline-none"
+                                            className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors outline-none"
                                             placeholder="John Doe"
                                         />
                                     </div>
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
                                             required
                                             value={formData.email}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors outline-none"
+                                            className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors outline-none"
                                             placeholder="john@example.com"
                                         />
                                     </div>
@@ -138,13 +138,13 @@ const Contact: React.FC = () => {
                                             required
                                             value={formData.message}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors outline-none"
+                                            className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors outline-none"
                                             placeholder="Tell us about your project requirements..."
                                         ></textarea>
                                     </div>
                                     <button 
                                         type="submit" 
-                                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-lg transition-colors flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                        className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-lg transition-colors flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                                     >
                                         Send Message <Send size={20} className="ml-2" />
                                     </button>

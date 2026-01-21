@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
                 <div className="flex justify-between items-center h-12">
                     {/* Logo */}
                     <Link to="/" className="flex items-center space-x-3 group">
-                        <div className={`p-2 rounded-xl transition-colors duration-300 ${scrolled ? 'bg-blue-600 text-white' : 'bg-white/10 backdrop-blur-md border border-white/20 text-white'}`}>
+                        <div className={`p-2 rounded-xl transition-colors duration-300 ${scrolled ? 'bg-brand-600 text-white' : 'bg-white/10 backdrop-blur-md border border-white/20 text-white'}`}>
                             <Activity size={22} className="group-hover:animate-pulse" />
                         </div>
                         <span className={`font-display font-bold text-xl tracking-tight transition-colors ${scrolled ? 'text-slate-900' : 'text-white'}`}>
@@ -51,8 +51,8 @@ const Navbar: React.FC = () => {
                                     to={link.path}
                                     className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 group ${
                                         isActive 
-                                            ? scrolled ? 'text-blue-600 bg-blue-50' : 'text-white bg-white/20 backdrop-blur-sm'
-                                            : scrolled ? 'text-slate-600 hover:text-blue-600 hover:bg-slate-50' : 'text-slate-300 hover:text-white hover:bg-white/10'
+                                            ? scrolled ? 'text-brand-600 bg-brand-50' : 'text-white bg-white/20 backdrop-blur-sm'
+                                            : scrolled ? 'text-slate-600 hover:text-brand-600 hover:bg-slate-50' : 'text-slate-300 hover:text-white hover:bg-white/10'
                                     }`}
                                 >
                                     {link.label}
@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
                             to={link.path}
                             className={`block px-4 py-3 rounded-xl text-base font-medium transition-all ${
                                 location.pathname === link.path
-                                    ? 'bg-blue-50 text-blue-600'
+                                    ? 'bg-brand-50 text-brand-600'
                                     : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                             }`}
                         >

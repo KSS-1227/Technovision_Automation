@@ -41,11 +41,11 @@ const Products: React.FC = () => {
                             className="w-full flex justify-between items-center text-left group focus:outline-none transition-all duration-300 rounded-lg hover:bg-slate-50 p-4 -mx-4"
                         >
                             <div>
-                                <h2 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">More Solutions</h2>
+                                <h2 className="text-2xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">More Solutions</h2>
                                 <p className="text-slate-500 mt-2">Additional automation and security products available upon request.</p>
                             </div>
-                            <div className={`transform transition-transform duration-300 ${isMoreSolutionsOpen ? 'rotate-180' : ''} bg-slate-100 p-2 rounded-full group-hover:bg-blue-100`}>
-                                <ChevronDown className="text-slate-600 group-hover:text-blue-600" size={24} />
+                            <div className={`transform transition-transform duration-300 ${isMoreSolutionsOpen ? 'rotate-180' : ''} bg-slate-100 p-2 rounded-full group-hover:bg-brand-100`}>
+                                <ChevronDown className="text-slate-600 group-hover:text-brand-600" size={24} />
                             </div>
                         </button>
                         

@@ -25,15 +25,15 @@ const About: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <RevealOnScroll effect="fade-up" delay={0}>
-                            <div className="bg-white p-8 rounded-xl shadow-sm border-t-4 border-blue-600 h-full">
-                                <div className="mb-4 text-blue-600"><Target size={32} /></div>
+                            <div className="bg-white p-8 rounded-xl shadow-sm border-t-4 border-brand-600 h-full">
+                                <div className="mb-4 text-brand-600"><Target size={32} /></div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-2">Our Purpose</h3>
                                 <p className="text-slate-600">To provide comfort, convenience, and luxury to every occupant across the globe.</p>
                             </div>
                         </RevealOnScroll>
                         <RevealOnScroll effect="fade-up" delay={150}>
-                            <div className="bg-white p-8 rounded-xl shadow-sm border-t-4 border-blue-600 h-full">
-                                <div className="mb-4 text-blue-600"><Eye size={32} /></div>
+                            <div className="bg-white p-8 rounded-xl shadow-sm border-t-4 border-brand-600 h-full">
+                                <div className="mb-4 text-brand-600"><Eye size={32} /></div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-2">Our Goal</h3>
                                 <ul className="text-slate-600 list-disc list-inside space-y-1">
                                     <li>Brand Awareness</li>
@@ -43,8 +43,8 @@ const About: React.FC = () => {
                             </div>
                         </RevealOnScroll>
                         <RevealOnScroll effect="fade-up" delay={300}>
-                            <div className="bg-white p-8 rounded-xl shadow-sm border-t-4 border-blue-600 h-full">
-                                <div className="mb-4 text-blue-600"><CheckCircle size={32} /></div>
+                            <div className="bg-white p-8 rounded-xl shadow-sm border-t-4 border-brand-600 h-full">
+                                <div className="mb-4 text-brand-600"><CheckCircle size={32} /></div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-2">Why Technovision?</h3>
                                 <p className="text-slate-600">Team of qualified engineers ensuring accurate technical solutions, perfect documentation, and proper training without the need for AMC.</p>
                             </div>
@@ -62,7 +62,7 @@ const About: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         {FOUNDERS.map((founder, index) => (
                             <RevealOnScroll key={index} effect={index % 2 === 0 ? "fade-right" : "fade-left"}>
-                                <div className="bg-slate-50 rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-8 border border-slate-200 hover:border-blue-300 transition-colors h-full">
+                                <div className="bg-slate-50 rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-8 border border-slate-200 hover:border-brand-300 transition-colors h-full">
                                     <img 
                                         src={founder.imageUrl} 
                                         alt={founder.name} 
@@ -70,7 +70,7 @@ const About: React.FC = () => {
                                     />
                                     <div className="text-center md:text-left">
                                         <h3 className="text-xl font-bold text-slate-900">{founder.name}</h3>
-                                        <p className="text-blue-600 font-medium mb-3">{founder.role}</p>
+                                        <p className="text-brand-600 font-medium mb-3">{founder.role}</p>
                                         <p className="text-slate-600 text-sm leading-relaxed">{founder.bio}</p>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@ const About: React.FC = () => {
                             {MILESTONES.map((milestone, index) => (
                                 <RevealOnScroll key={index} effect="fade-up" delay={index * 100} className="relative flex-shrink-0 w-80 md:w-64 snap-center z-10">
                                     <div className="flex flex-col items-center">
-                                        <div className="w-8 h-8 rounded-full bg-blue-600 border-4 border-white shadow-lg mb-4 flex items-center justify-center">
+                                        <div className="w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-lg mb-4 flex items-center justify-center">
                                             <div className="w-2 h-2 bg-white rounded-full"></div>
                                         </div>
                                         <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm w-full text-center hover:shadow-md transition-shadow">

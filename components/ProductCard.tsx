@@ -33,12 +33,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <div className="p-6 flex flex-col flex-grow relative">
                 {/* Brand Label */}
                 {product.brand && (
-                    <div className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 opacity-80">
+                    <div className="text-xs font-bold text-brand-600 uppercase tracking-wider mb-2 opacity-80">
                         {product.brand}
                     </div>
                 )}
                 
-                <h3 className="text-xl font-display font-bold text-slate-900 mb-2 leading-tight group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-display font-bold text-slate-900 mb-2 leading-tight group-hover:text-brand-600 transition-colors">
                     {product.name}
                 </h3>
                 
@@ -47,7 +47,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 </p>
                 
                 <div className="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
-                    <Link to="/contact" className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 flex items-center transition-colors">
+                    <Link to="/contact" className="text-sm font-semibold text-slate-900 group-hover:text-brand-600 flex items-center transition-colors">
                         Inquiry <ArrowRight size={16} className="ml-1 transform transition-transform group-hover:translate-x-1" />
                     </Link>
                 </div>

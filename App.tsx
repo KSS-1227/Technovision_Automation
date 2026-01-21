@@ -7,6 +7,7 @@ import About from './pages/About';
 import Solutions from './pages/Solutions';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
+import ChatBot from './components/ChatBot';
 import RevealOnScroll from './components/RevealOnScroll';
 import { PROJECTS } from './constants';
 
@@ -68,6 +69,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <ChatBot />
       </div>
     </HashRouter>
   );

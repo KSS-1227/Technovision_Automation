@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Brand Info */}
                     <div className="col-span-1 md:col-span-1">
-                        <h3 className="text-xl font-bold mb-4 text-blue-400">Technovision</h3>
+                        <h3 className="text-xl font-bold mb-4 text-brand-400">Technovision</h3>
                         <p className="text-slate-400 text-sm leading-relaxed mb-4">
                             For All Your Automation Needs. From Industrial Automation since 1998 to cutting-edge Smart Homes.
                         </p>
@@ -29,11 +29,11 @@ const Footer: React.FC = () => {
                     <div>
                         <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
                         <ul className="space-y-2 text-sm text-slate-400">
-                            <li><Link to="/" className="hover:text-blue-400">Home</Link></li>
-                            <li><Link to="/about" className="hover:text-blue-400">About Us</Link></li>
-                            <li><Link to="/solutions" className="hover:text-blue-400">Solutions</Link></li>
-                            <li><Link to="/products" className="hover:text-blue-400">Products</Link></li>
-                            <li><Link to="/contact" className="hover:text-blue-400">Contact</Link></li>
+                            <li><Link to="/" className="hover:text-brand-400">Home</Link></li>
+                            <li><Link to="/about" className="hover:text-brand-400">About Us</Link></li>
+                            <li><Link to="/solutions" className="hover:text-brand-400">Solutions</Link></li>
+                            <li><Link to="/products" className="hover:text-brand-400">Products</Link></li>
+                            <li><Link to="/contact" className="hover:text-brand-400">Contact</Link></li>
                         </ul>
                     </div>
 
@@ -54,15 +54,15 @@ const Footer: React.FC = () => {
                         <h4 className="text-lg font-semibold mb-4 text-white">Contact Us</h4>
                         <ul className="space-y-3 text-sm text-slate-400">
                             <li className="flex items-start">
-                                <MapPin size={18} className="mr-2 mt-0.5 shrink-0 text-blue-400" />
+                                <MapPin size={18} className="mr-2 mt-0.5 shrink-0 text-brand-400" />
                                 <span>C-3 Neelkanth Sadan, Plot-3A, Sec-10, Khanda Colony, New Panvel - 410206</span>
                             </li>
                             <li className="flex items-center">
-                                <Phone size={18} className="mr-2 text-blue-400" />
+                                <Phone size={18} className="mr-2 text-brand-400" />
                                 <span>9004614407</span>
                             </li>
                             <li className="flex items-center">
-                                <Mail size={18} className="mr-2 text-blue-400" />
+                                <Mail size={18} className="mr-2 text-brand-400" />
                                 <span>prashant@technovision.co.in</span>
                             </li>
                         </ul>
