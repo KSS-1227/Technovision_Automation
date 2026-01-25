@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Loader2, Bot } from 'lucide-react';
 import { GoogleGenAI, Chat } from "@google/genai";
-import { PRODUCTS, SERVICES, FOUNDERS, MILESTONES, PROJECTS } from '../constants';
+import { PRODUCTS, SERVICES, MILESTONES, PROJECTS } from '../constants';
 
 interface Message {
     role: 'user' | 'model';
@@ -91,21 +91,21 @@ STRICT GUIDELINES:
         }
     }, []);
 
-    const handleSend = async (e?: React.FormEvent) => {
+    const handleSend = async (e?: React.FormEvent<HTMLFormElement>) => {
         e?.preventDefault();
         if (!inputValue.trim() || !chatSessionRef.current) return;
 
         const userMsg = inputValue.trim();
-        setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
+        setMessages((prev: Message[]) => [...prev, { role: 'user', text: userMsg }]);
         setInputValue('');
         setIsLoading(true);
 
         try {
             const result = await chatSessionRef.current.sendMessage({ message: userMsg });
-            setMessages(prev => [...prev, { role: 'model', text: result.text || "I'm sorry, I couldn't process that." }]);
+            setMessages((prev: Message[]) => [...prev, { role: 'model', text: result.text || "I'm sorry, I couldn't process that." }]);
         } catch (error) {
             console.error("Chat error:", error);
-            setMessages(prev => [...prev, { role: 'model', text: "Sorry, I'm having trouble connecting to the server right now." }]);
+            setMessages((prev: Message[]) => [...prev, { role: 'model', text: "Sorry, I'm having trouble connecting to the server right now." }]);
         } finally {
             setIsLoading(false);
         }
@@ -191,7 +191,7 @@ STRICT GUIDELINES:
 
                 {/* Messages Area */}
                 <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
-                    {messages.map((msg, idx) => (
+                    {messages.map((msg: Message, idx: number) => (
                         <div
                             key={idx}
                             className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
@@ -223,7 +223,7 @@ STRICT GUIDELINES:
                         <input
                             type="text"
                             value={inputValue}
-                            onChange={(e) => setInputValue(e.target.value)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
                             placeholder="Ask about our products..."
                             className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-xl pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
                         />
