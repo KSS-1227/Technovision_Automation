@@ -30,6 +30,13 @@ const ChatBot: React.FC = () => {
     useEffect(() => {
         const initChat = () => {
             try {
+                const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+                
+                if (!apiKey) {
+                    console.error("Gemini API key not found. Please check your .env file.");
+                    return;
+                }
+
                 // Initialize context string from constants
                 const context = `
 You are the intelligent AI assistant for "Technovision Automation Pvt Ltd".
@@ -66,7 +73,7 @@ STRICT GUIDELINES:
 5. If a user asks for a quote, refer them to the Contact page.
 `;
 
-                const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+                const ai = new GoogleGenAI({ apiKey: apiKey });
                 chatSessionRef.current = ai.chats.create({
                     model: 'gemini-3-flash-preview',
                     config: {
